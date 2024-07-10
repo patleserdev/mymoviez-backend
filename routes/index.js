@@ -20,7 +20,8 @@ fetch('https://api.themoviedb.org/3/discover/movie?&language=fr-FR&sort_by=popul
       formatted_datas.push({title: data.title, poster: 'https://image.tmdb.org/t/p/original'+data.poster_path, voteAverage:data.vote_average, voteCount:data.vote_count , overview:data.overview.length == 0 ? 'Pas de description' : data.overview.slice(0,250)+'...'})
     }
     
-     res.json(formatted_datas)
+    res.json({movies : formatted_datas})
+
     })
   .catch(err => console.error('error:' + err))
 })
